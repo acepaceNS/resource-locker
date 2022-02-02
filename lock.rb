@@ -5,7 +5,6 @@ require './app/models/message'
 
 # This is the Slack endpoint
 post '/' do
-  return [400, ["Bad token"]] unless request['token'] == ENV['SLACK_REQUEST_TOKEN']
   resource_name, duration = request['text'].split unless request['text'].blank?
   if resource_name.blank?
     # Return resources available
